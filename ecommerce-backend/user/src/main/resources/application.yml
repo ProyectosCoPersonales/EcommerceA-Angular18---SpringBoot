@@ -1,0 +1,41 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ecommerce
+    username: root
+    password: 4Sept2001System.in
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: YOUR_GOOGLE_CLIENT_ID
+            client-secret: YOUR_GOOGLE_CLIENT_SECRET
+            scope: profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/google"
+          github:
+            client-id: Ov23liM9BlCZMc9zszyy
+            client-secret: 36683988c78b4e8f4330c262ee63eb41b092feca
+            scope: read:user
+            redirect-uri: "{baseUrl}/login/oauth2/code/github"
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+jwt:
+  secret: DIEJR8234238Y34328382YE62E6723E6G36E237R23G6G2126DE5621FE6236FE3R73G2R3
